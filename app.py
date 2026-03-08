@@ -53,11 +53,6 @@ def project_detail(slug):
 def resume():
     return redirect(url_for('home') + '#resume')
 
-# This is your "Projects" tab
-@app.route('/projects')
-def projects():
-    return redirect(url_for('home') + '#projects')
-
 
 @app.route('/contact')
 def contact():
