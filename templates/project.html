@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/projectStyles.css">
+    <title>{{ project.title }} — Project</title>
+</head>
+<body>
+<section class="header">
+    <div>
+        <h1>{{ project.title }}</h1>
+        <p><a href="{{ url_for('home') }}#projects">← Back to Projects</a></p>
+    </div>
+</section>
+
+<section class="project-detail">
+<div>
+
+    <div class="project-grid">
+        <div class="project-media">
+            <img src="{{ project.image }}" alt="{{ project.title }} image">
+        </div>
+        <div class="project-content">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+            {% if project.long_description %}
+                <p class="project-long">{{ project.long_description }}</p>
+            {% endif %}
+            {% if project.tech %}
+                <div class="project-meta">
+                    <h3>Tech Stack</h3>
+                    <ul class="project-tech">
+                    {% for tech in project.tech %}
+                        <li>{{ tech }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% if project.repo %}
+                <p><a href="{{ project.repo }}" target="_blank" rel="noopener noreferrer">Repository</a></p>
+            {% endif %}
+            {% if project.video_url %}
+                <p><a href="{{ project.video_url }}" target="_blank" rel="noopener noreferrer">Watch video</a></p>
+            {% endif %} 
+        </div>
+    </div>
+</div>
+</section>
+</body>
+</html>
